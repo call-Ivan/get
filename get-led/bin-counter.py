@@ -3,9 +3,6 @@ import time
 
 GPIO.setmode(GPIO.BCM)
 
-led = 26
-GPIO.setup(led, GPIO.OUT)
-
 leds = [16, 12, 25, 17, 27, 23, 22, 24]
 
 for led in leds:

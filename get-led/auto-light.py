@@ -16,4 +16,4 @@ while True:
     sensor_value = GPIO.input(phototrans)
     state = not sensor_value
     GPIO.output(led,state)
-    time.sleep(0.2)
+    time.sleep(0.05)
