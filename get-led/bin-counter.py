@@ -10,18 +10,19 @@ for led in leds:
 
 GPIO.output(leds, 0)
 
-up = 5
-down = 6
+up = 9
+down = 10
 
-GPIO.setup(up, GPIO.IN)
-GPIO.setup(down, GPIO.IN)
+GPIO.setup(up, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
+GPIO.setup(down, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
 
 num = 0
 
 def dec2bin(value):
-    return [int(element) for element in bin(value) [2:].zfill(8)]
+    return [int(element) for element in bin(value)[2:].zfill(8)]
 
 sleep_time = 0.2
+
 
 while True:
     if GPIO.input(up):
@@ -32,5 +33,8 @@ while True:
         num -= 1
         print(num, dec2bin(num))
         time.sleep(sleep_time)
+    GPIO.output(leds, dec2bin(num))
 
-GPIO.output(leds, dec2bin(num))
+# except KeyboardInterrrupt:
+#     GPIO.cleanup()
+#     print("\nThat's all")

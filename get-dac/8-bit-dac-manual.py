@@ -2,12 +2,11 @@ import RPi.GPIO as GPIO
 
 dac_bits = [ 16,20,21,25,26,17,27,22]
 
+dynamic_range = 3.3
+
 GPIO.setmode(GPIO.BCM)
 for pin in dac_bits:
     GPIO.setup(pin, GPIO.OUT)
-
-
-dynamic_range = 3.3
 
 def voltage_to_number(voltage):
     if not(0.0 <= voltage <= dynamic_range):

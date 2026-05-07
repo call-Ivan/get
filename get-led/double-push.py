@@ -14,8 +14,8 @@ for led in leds:
 
 GPIO.output(leds,0)
 
-up = 19
-down = 26
+up = 9
+down = 10
 
 GPIO.setup(up, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
 GPIO.setup(down, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)

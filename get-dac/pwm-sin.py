@@ -1,16 +1,18 @@
-import r2r_dac as r2r
+import pwm_dac as pwm
 import signal_generator as sg
 import time
-
 
 amplitude = 3.2           
 signal_frequency = 10     
 sampling_frequency = 1000 
 
 try:
-    dac = r2r.R2R_DAC([16, 20, 21, 25, 26, 17, 27, 22], 3.3, False)
+    dac = pwm.PWM_DAC(12, 500, 3.3, False)
     
     start_time = time.time()
+    
+    print("Generating sine wave... Press Ctrl+C to stop")
+    print(f"Amplitude: {amplitude} V, Frequency: {signal_frequency} Hz, Sampling: {sampling_frequency} Hz")
     
     while True:
         current_time = time.time() - start_time
@@ -28,4 +30,4 @@ except KeyboardInterrupt:
     
 finally:
     dac.deinit()
-    print("DAC deinitialized")
+    print("PWM DAC deinitialized")
